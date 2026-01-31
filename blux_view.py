@@ -558,15 +558,71 @@ def format_pack_label(pack_ref: Optional[dict[str, str]]) -> Optional[str]:
     return None
 
 
+def extract_profile_metadata(data: Any) -> dict[str, Any]:
+    if not isinstance(data, dict):
+        return {}
+    metadata: dict[str, Any] = {}
+    keys = ("profile_id", "profile_version", "device")
+    for key in keys:
+        if key in data and data[key] is not None:
+            metadata[key] = data[key]
+    if len(metadata) == len(keys):
+        return metadata
+
+    seen: set[int] = set()
+
+    def scan(value: Any) -> None:
+        if isinstance(value, dict):
+            identifier = id(value)
+            if identifier in seen:
+                return
+            seen.add(identifier)
+            for key in keys:
+                if key not in metadata and key in value and value[key] is not None:
+                    metadata[key] = value[key]
+            for nested in value.values():
+                scan(nested)
+        elif isinstance(value, list):
+            for item in value:
+                scan(item)
+
+    scan(data)
+    return metadata
+
+
+def format_profile_label(metadata: dict[str, Any]) -> Optional[str]:
+    if not metadata:
+        return None
+    profile_id = metadata.get("profile_id")
+    profile_version = metadata.get("profile_version")
+    device = metadata.get("device")
+    parts = []
+    if profile_id and profile_version:
+        parts.append(f"{profile_id}@{profile_version}")
+    elif profile_id:
+        parts.append(str(profile_id))
+    elif profile_version:
+        parts.append(f"version {profile_version}")
+    if device:
+        parts.append(f"device={device}")
+    return ", ".join(parts) if parts else None
+
+
 def format_panel_title(title: str, data: Any) -> str:
+    suffixes = []
     if "Reasoning (CogA)" in title:
         label = format_pack_label(extract_pack_ref(data, "reasoning"))
         if label:
-            return f"{title} [pack: {label}]"
+            suffixes.append(f"pack: {label}")
     if "Build (cA)" in title:
         label = format_pack_label(extract_pack_ref(data, "policy"))
         if label:
-            return f"{title} [pack: {label}]"
+            suffixes.append(f"pack: {label}")
+    profile_label = format_profile_label(extract_profile_metadata(data))
+    if profile_label:
+        suffixes.append(f"profile: {profile_label}")
+    if suffixes:
+        return f"{title} [{', '.join(suffixes)}]"
     return title
 
 

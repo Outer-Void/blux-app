@@ -25,6 +25,9 @@ Expected files in the directory (missing files are shown as absent panels):
 - `verdicts.json` (verdict panel(s))
 - `receipt.json` (execution receipt)
 
+If profile metadata (`profile_id`, `profile_version`, `device`) is present in an
+artifact, the viewer appends it to the panel header.
+
 For the UI panel contract, see `docs/UI_CONTRACT.md`.
 
 ## Read-only viewer usage (Phases 3 + 4)
