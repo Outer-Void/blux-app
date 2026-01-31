@@ -1,0 +1,13 @@
+{
+  "summary": "RC build output.",
+  "policy_pack": {
+    "id": "pp-1.0-pro",
+    "version": "1.0-pro"
+  },
+  "artifacts": [
+    {
+      "path": "src/app.ts",
+      "content": "export const value = 1;"
+    }
+  ]
+}

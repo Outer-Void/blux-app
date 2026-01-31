@@ -1,0 +1,9 @@
+{
+  "results": [
+    {
+      "id": "rc-accept",
+      "status": "pass",
+      "details": "Release candidate accepted"
+    }
+  ]
+}

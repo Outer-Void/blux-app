@@ -1,0 +1,41 @@
+{
+  "agent_runs": [
+    {
+      "id": "coga",
+      "status": "done",
+      "requested_version": "1.x",
+      "resolved_version": "1.0-pro"
+    },
+    {
+      "id": "ca",
+      "status": "done",
+      "requested_version": "1.x",
+      "resolved_version": "1.0-pro"
+    }
+  ],
+  "version_negotiation": {
+    "policy": {
+      "requested": "1.x",
+      "resolved": "1.0-pro"
+    },
+    "reasoning": {
+      "requested": "1.x",
+      "resolved": "1.0-pro"
+    }
+  },
+  "steps": [
+    {
+      "id": "step-a",
+      "status": "done",
+      "sha": "sha-step-a",
+      "started_at": "2024-10-01T09:00:00Z",
+      "ended_at": "2024-10-01T09:03:00Z"
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "fx-rc",
+      "hash": "hash-fx-rc"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "agent_runs": [
+    {
+      "id": "coga",
+      "status": "done",
+      "requested_version": "0.1",
+      "resolved_version": "0.1"
+    }
+  ],
+  "steps": [
+    {
+      "id": "step-1",
+      "status": "done",
+      "hash": "hash-step-1"
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "fx-1",
+      "hash": "hash-fx-1"
+    }
+  ]
+}

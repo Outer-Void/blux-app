@@ -1,0 +1,13 @@
+{
+  "summary": {
+    "passed": 2,
+    "failed": 0,
+    "total": 2
+  },
+  "fixtures": [
+    {
+      "name": "rc-fixture",
+      "status": "passed"
+    }
+  ]
+}

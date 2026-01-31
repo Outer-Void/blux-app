@@ -1,0 +1,18 @@
+{
+  "summary": "Option comparison for early schema.",
+  "options": [
+    {
+      "name": "Option A",
+      "summary": "Minimal output"
+    }
+  ],
+  "comparison_matrix": {
+    "Option A": {
+      "score": 1
+    }
+  },
+  "reasoning_pack": {
+    "id": "rp-0.1",
+    "version": "0.1"
+  }
+}

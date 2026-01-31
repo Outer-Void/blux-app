@@ -1,0 +1,17 @@
+{
+  "summary": "RC reasoning output.",
+  "reasoning_pack": {
+    "id": "rp-1.0-pro",
+    "version": "1.0-pro"
+  },
+  "options": [
+    {
+      "name": "Fast path",
+      "summary": "Fewer steps"
+    },
+    {
+      "name": "Safe path",
+      "summary": "More checks"
+    }
+  ]
+}

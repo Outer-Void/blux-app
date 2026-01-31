@@ -1,0 +1,12 @@
+{
+  "summary": "Mid-series build.",
+  "policy_pack_id": "pp-0.6",
+  "policy_pack_version": "0.6",
+  "outputs": [
+    {
+      "file": "main.ts",
+      "text": "console.log('ok');"
+    }
+  ],
+  "patch_bundle": "diff --git a/main.ts b/main.ts\n--- a/main.ts\n+++ b/main.ts\n@@\n-console.log('old');\n+console.log('ok');"
+}

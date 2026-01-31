@@ -1,0 +1,8 @@
+{
+  "problem_spec": "Release candidate run.",
+  "goal_spec": "Validate V1.0 UI.",
+  "constraints": {
+    "authority": "none",
+    "execution": "disabled"
+  }
+}

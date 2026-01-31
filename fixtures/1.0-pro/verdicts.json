@@ -1,0 +1,9 @@
+{
+  "verdicts": [
+    {
+      "id": "v3",
+      "status": "pass",
+      "message": "RC checks pass"
+    }
+  ]
+}
