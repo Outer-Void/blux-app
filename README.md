@@ -27,4 +27,23 @@ Expected files in the directory (missing files are shown as absent panels):
 
 For the UI panel contract, see `docs/UI_CONTRACT.md`.
 
+## Read-only viewer usage (Phases 3 + 4)
+
+Phase 3 adds richer CogA/cA output rendering and Phase 4 adds receipts plus
+harness reports. The viewer stays read-only and prints any recognized sections
+alongside the raw JSON.
+
+```bash
+python blux_view.py --input-dir /path/to/phase-3-4-output
+```
+
+Expected files for Phase 3/4 (missing files are shown as absent panels):
+
+- `intent.json`
+- `coga.json` (CogA options + comparison matrix)
+- `ca.json` (multi-file artifacts + patch bundles)
+- `verdicts.json`
+- `receipt.json` (agent runs, versions, hashes)
+- `report.json` (harness summary + per-fixture results)
+
 (( • ))
