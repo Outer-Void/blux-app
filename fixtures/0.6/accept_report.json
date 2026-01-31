@@ -1,0 +1,9 @@
+{
+  "acceptance": [
+    {
+      "name": "artifact-1",
+      "verdict": "pass",
+      "note": "Accepted"
+    }
+  ]
+}

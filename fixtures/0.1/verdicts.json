@@ -1,0 +1,9 @@
+{
+  "verdicts": [
+    {
+      "id": "v1",
+      "status": "pass",
+      "message": "All good"
+    }
+  ]
+}

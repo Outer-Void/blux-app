@@ -1,0 +1,5 @@
+{
+  "problem_spec": "Render artifacts read-only.",
+  "goal_spec": "Show all known panels.",
+  "constraints": ["read-only", "offline"]
+}

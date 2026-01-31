@@ -47,3 +47,26 @@ Expected files for Phase 3/4 (missing files are shown as absent panels):
 - `report.json` (harness summary + per-fixture results)
 
 (( • ))
+
+## Read-only viewer usage (BLUX V1.0)
+
+Use the stable entrypoint to open a run directory:
+
+```bash
+./blux-app view --root /path/to/run
+```
+
+Expected files (missing files are shown as absent panels):
+
+- `intent.json`
+- `coga.json`
+- `ca.json`
+- `verdicts.json`
+- `receipt.json`
+- `execution_receipt.json`
+- `replay_report.json`
+- `accept_report.json`
+- `report.json`
+
+Unknown JSON files are rendered in a \"Raw JSON\" fallback panel. See
+`docs/RUNBOOK.md` for details.

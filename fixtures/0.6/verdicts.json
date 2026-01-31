@@ -1,0 +1,9 @@
+{
+  "verdicts": [
+    {
+      "id": "v2",
+      "status": "warn",
+      "message": "Check optional fields"
+    }
+  ]
+}

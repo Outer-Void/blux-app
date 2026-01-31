@@ -1,0 +1,7 @@
+{
+  "problem_spec": {
+    "title": "Mid-series run",
+    "details": "Render receipts and reports"
+  },
+  "goal_spec": "Ensure viewer is tolerant"
+}

@@ -1,0 +1,9 @@
+{
+  "fixtures": [
+    {
+      "id": "fx-1",
+      "hash": "hash-fx-1",
+      "verified": true
+    }
+  ]
+}

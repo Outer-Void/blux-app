@@ -1,0 +1,13 @@
+{
+  "summary": "Build artifact sample.",
+  "files": [
+    {
+      "path": "app.py",
+      "content": "print('hello')"
+    }
+  ],
+  "policy_pack": {
+    "id": "pp-0.1",
+    "version": "0.1"
+  }
+}
