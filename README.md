@@ -73,3 +73,9 @@ Expected files (missing files are shown as absent panels):
 
 Unknown JSON files are rendered in a \"Raw JSON\" fallback panel. See
 `docs/RUNBOOK.md` for details.
+
+## License
+
+**BLUX Proprietary License** (proprietary). Copyright (c) 2026 Outer-Void / Justadudeinspace (JADIS). All rights reserved. See [LICENSE](LICENSE).
+
+Contact: outervoid.blux@gmail.com (main) · theoutervoid@outlook.com (fallback)
