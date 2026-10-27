@@ -46,7 +46,7 @@ def make_handler(app: App, port_box: list[int]) -> type[BaseHTTPRequestHandler]:
         server_version = f"blux-app/{VERSION}"
         sys_version = ""
 
-        def log_message(self, format: str, *args: Any) -> None:  # noqa: A002 - stdlib signature
+        def log_message(self, format: str, *args: Any) -> None:
             return  # no request logging: paths can contain identifiers
 
         def _allowed_host(self) -> bool:
@@ -65,7 +65,7 @@ def make_handler(app: App, port_box: list[int]) -> type[BaseHTTPRequestHandler]:
         def _json(self, status: int, doc: Any) -> None:
             self._send(status, json.dumps(doc, sort_keys=True).encode(), "application/json")
 
-        def do_GET(self) -> None:  # noqa: N802 - stdlib name
+        def do_GET(self) -> None:
             if not self._allowed_host():
                 return self._json(403, {"error": "unexpected Host header"})
             path = urlsplit(self.path).path
@@ -88,7 +88,7 @@ def make_handler(app: App, port_box: list[int]) -> type[BaseHTTPRequestHandler]:
                 return self._json(200, sources.session(app.tools, parts[2]))
             return self._json(404, {"error": "not found"})
 
-        def do_POST(self) -> None:  # noqa: N802
+        def do_POST(self) -> None:
             if not self._allowed_host():
                 return self._json(403, {"error": "unexpected Host header"})
             origin = self.headers.get("Origin")
@@ -104,10 +104,10 @@ def make_handler(app: App, port_box: list[int]) -> type[BaseHTTPRequestHandler]:
                 return self._json(400, {"error": "not an operation id"})
             return self._json(200, sources.CONTROLS[parts[2]](app.tools, arg))
 
-        def do_PUT(self) -> None:  # noqa: N802
+        def do_PUT(self) -> None:
             self._json(405, {"error": "method not allowed"})
 
-        do_DELETE = do_PATCH = do_PUT  # noqa: N815
+        do_DELETE = do_PATCH = do_PUT
 
     return Handler
 

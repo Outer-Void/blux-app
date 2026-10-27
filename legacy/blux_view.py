@@ -5,9 +5,10 @@ from __future__ import annotations
 
 import argparse
 import json
+from collections.abc import Callable, Iterable
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Callable, Iterable, Optional
+from typing import Any
 
 PANEL_FILES = [
     ("Intent", "intent.json"),
@@ -141,10 +142,13 @@ def extract_patch_bundles(data: Any) -> list[str]:
         elif isinstance(value, list):
             for item in value:
                 scan(item, label)
-        elif isinstance(value, str):
-            if label and ("patch" in label or "diff" in label or "bundle" in label):
-                if looks_like_unified_diff(value):
-                    add_patch(value)
+        elif (
+            isinstance(value, str)
+            and label
+            and ("patch" in label or "diff" in label or "bundle" in label)
+            and looks_like_unified_diff(value)
+        ):
+            add_patch(value)
 
     scan(data)
     return patches
@@ -494,7 +498,7 @@ def status_to_badge(status: str) -> str:
     return "[unknown]"
 
 
-def extract_pack_ref(data: Any, pack_type: str) -> Optional[dict[str, str]]:
+def extract_pack_ref(data: Any, pack_type: str) -> dict[str, str] | None:
     if not isinstance(data, dict):
         return None
     pack_id_key = f"{pack_type}_pack_id"
@@ -533,7 +537,7 @@ def extract_pack_ref(data: Any, pack_type: str) -> Optional[dict[str, str]]:
     return None
 
 
-def normalize_pack_ref(value: dict[str, Any]) -> Optional[dict[str, str]]:
+def normalize_pack_ref(value: dict[str, Any]) -> dict[str, str] | None:
     pack_id = value.get("id") or value.get("pack_id") or value.get("identifier")
     pack_version = value.get("version") or value.get("pack_version") or value.get("ver")
     if pack_id or pack_version:
@@ -544,7 +548,7 @@ def normalize_pack_ref(value: dict[str, Any]) -> Optional[dict[str, str]]:
     return None
 
 
-def format_pack_label(pack_ref: Optional[dict[str, str]]) -> Optional[str]:
+def format_pack_label(pack_ref: dict[str, str] | None) -> str | None:
     if not pack_ref:
         return None
     pack_id = pack_ref.get("id")
@@ -590,7 +594,7 @@ def extract_profile_metadata(data: Any) -> dict[str, Any]:
     return metadata
 
 
-def format_profile_label(metadata: dict[str, Any]) -> Optional[str]:
+def format_profile_label(metadata: dict[str, Any]) -> str | None:
     if not metadata:
         return None
     profile_id = metadata.get("profile_id")

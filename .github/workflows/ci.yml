@@ -17,5 +17,6 @@ jobs:
           pip install "blux-sdk @ git+https://github.com/Outer-Void/blux.git#subdirectory=sdk/python"
           pip install "outervoid-blux @ git+https://github.com/Outer-Void/blux.git" "blux-system @ git+https://github.com/Outer-Void/blux-system.git" pytest
           pip install .
+      - run: pip install ruff && ruff check .
       - run: node --check blux_app/static/app.js
       - run: python -m pytest -q tests

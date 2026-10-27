@@ -79,7 +79,7 @@ def call(argv: list[str] | None, *extra: str, env: dict[str, str] | None = None)
         return {"ok": False, "error": "tool not installed"}
     cmd = [*argv, *extra]
     try:
-        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=TIMEOUT, check=False, env=env)  # noqa: S603
+        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=TIMEOUT, check=False, env=env)
     except (OSError, subprocess.TimeoutExpired) as exc:
         return {"ok": False, "error": f"{Path(cmd[0]).name}: {type(exc).__name__}"}
     try:

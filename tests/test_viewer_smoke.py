@@ -1,14 +1,12 @@
 import contextlib
 import io
-from pathlib import Path
-import unittest
-
 import sys
+import unittest
+from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "legacy"))
 
-from blux_view import render_from_directory  # noqa: E402  (BLUX App 1.0 viewer, kept as `blux-app legacy-view`)
-
+from blux_view import render_from_directory
 
 FIXTURE_DIRS = [
     Path(__file__).resolve().parent.parent / "fixtures" / "0.1",
