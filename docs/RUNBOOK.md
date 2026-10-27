@@ -1,5 +1,8 @@
 # BLUX App Runbook
 
+> **Legacy (BLUX App 1.0):** describes the pre-contract run-directory viewer, now `blux-app legacy-view`
+> (code in `legacy/`). BLUX App 2.0 is described in the [README](../README.md).
+
 ## Opening a run directory
 
 Use the stable entrypoint from the repository root:

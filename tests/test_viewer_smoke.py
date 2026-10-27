@@ -3,7 +3,11 @@ import io
 from pathlib import Path
 import unittest
 
-from blux_view import render_from_directory
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "legacy"))
+
+from blux_view import render_from_directory  # noqa: E402  (BLUX App 1.0 viewer, kept as `blux-app legacy-view`)
 
 
 FIXTURE_DIRS = [

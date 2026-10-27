@@ -1,5 +1,8 @@
 # BLUX App Compatibility
 
+> **Legacy (BLUX App 1.0):** describes the pre-contract run-directory viewer, now `blux-app legacy-view`
+> (code in `legacy/`). BLUX App 2.0 is described in the [README](../README.md).
+
 BLUX App is a read-only, offline viewer that remains forward compatible by
 rendering unknown fields as raw JSON.
 

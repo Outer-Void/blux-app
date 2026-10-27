@@ -1,0 +1,21 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Install BLUX and BLUX System (for the end-to-end test)
+        run: |
+          pip install "blux-sdk @ git+https://github.com/Outer-Void/blux.git#subdirectory=sdk/python"
+          pip install "outervoid-blux @ git+https://github.com/Outer-Void/blux.git" "blux-system @ git+https://github.com/Outer-Void/blux-system.git" pytest
+          pip install .
+      - run: node --check blux_app/static/app.js
+      - run: python -m pytest -q tests

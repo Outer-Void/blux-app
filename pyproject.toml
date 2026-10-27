@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "blux-app"
+version = "2.0.0"
+description = "BLUX mission control: a local, read-only workbench over the real BLUX tools"
+requires-python = ">=3.10"
+license = { text = "LicenseRef-OuterVoid-Proprietary" }
+authors = [{ name = "Outer-Void" }]
+dependencies = []  # stdlib only; the BLUX tools are called as executables. Install outervoid-blux for redaction.
+
+[project.scripts]
+blux-app = "blux_app.__main__:main"
+
+[tool.setuptools]
+packages = ["blux_app"]
+
+[tool.setuptools.package-data]
+blux_app = ["static/*"]
+
+[tool.ruff]
+line-length = 150
+target-version = "py310"

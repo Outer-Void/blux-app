@@ -1,5 +1,8 @@
 # BLUX App UI Contract (V1.0)
 
+> **Legacy (BLUX App 1.0):** describes the pre-contract run-directory viewer, now `blux-app legacy-view`
+> (code in `legacy/`). BLUX App 2.0 is described in the [README](../README.md).
+
 BLUX App is a **read-only** viewer. It never executes, orchestrates, or mutates
 artifacts. It only renders JSON files already produced elsewhere.
 
