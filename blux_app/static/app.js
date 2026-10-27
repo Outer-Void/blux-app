@@ -2,8 +2,11 @@
 "use strict";
 const TOKEN = document.querySelector('meta[name="blux-app-token"]').content;
 const view = document.getElementById("view");
-const ENGINE = [["CogA artifacts", /^reason\./], ["cA patches", /^(artifact|code|config)\.|^repo\.patch$/],
-                ["DAT findings", /^(repo\.(quality|security|audit)|dat\.)/], ["LRC outputs", /^(repo\.(construct|create)|lrc\.)/]];
+// Display grouping only, by the capability ids each engine declares in its .blux/capabilities.yaml.
+const ENGINE = [["CogA artifacts", /^reason\.(analyze|compare|critique|decompose|plan|rank|risk)$/],
+                ["cA patches", /^(artifact\.(construct|modify|repair|validate)|code\.patch|repo\.patch|config\.generate)$/],
+                ["DAT findings", /^(repo\.(audit|security|quality|release)|package\.audit|artifact\.audit|policy\.verify)$/],
+                ["LRC outputs", /^repo\.(create|scaffold|migrate|compile|validate)$/]];
 
 function el(tag, attrs = {}, ...kids) {
   const n = document.createElement(tag);
